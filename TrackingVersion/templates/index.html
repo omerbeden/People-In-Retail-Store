@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='style.css',v=0.02) }}" type="text/css" rel="stylesheet"/>
+    <title>People Count</title>
+    
+</head>
+<body>
+
+    <header>
+        <H1>Monitoring</H1>
+    </header>
+    
+    <div class="container_div">
+        <div class="real_time_div">
+            <figure>
+                <img class="image"src="{{url_for('video_feed')}}" alt="">
+            </figure> 
+         </div>
+    
+    
+    
+        <div class="stat_div">
+            <header>
+                <H1>Statistics</H1>
+		<span id="clock"></span>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+
+		<script type="text/javascript" charset="utf-8">
+
+
+			var socket = io();
+			setInterval(function(){
+				socket.emit('my event');
+			},1000);
+
+			socket.on('my response',function(msg){
+				document.getElementById("total_people").innerHTML=msg.total_trackers;
+				document.getElementById("clock").innerHTML=msg.time;
+			});
+
+
+
+		</script>			
+		
+            </header>
+		<label> Number of People:</label>
+                <label>deneme</label> </br>
+		<label> Total People:</label> <span id="total_people"></span>
+			
+        </div>
+        
+    </div>
+  
+
+    <footer class="footer">
+        <p>Footer</p>
+    </footer>
+    
+      
+   
+
+
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+.header{
+    font-style: italic;
+    padding: 0px;
+    margin: 0px;
+    
+}
+
+
+.container_div{
+    display: flex;
+    border:1px solid blue;
+    margin-bottom: 0;
+    padding-bottom: 0px;
+    height: 660px;
+
+}
+
+.stat_div{
+    border: 1px solid red;
+    flex: 1;
+    padding:5px;
+    
+    
+}
+
+.real_time_div{
+    border: 1px solid black;
+    padding: 0px;
+    height: 432px;
+    width: 762px;
+    flex: 0 0 65%;
+
+}
+
+.footer{
+    width: 100%;
+    text-align: center;
+
+}
