@@ -30,7 +30,6 @@ Firstly, the application runs in real-time. I use socketio to communicate to fla
 
 #Report
 Server create a excel file by getting data from Firebase when clicked report button. Excel file contains counting data and some charts according to that data.
-
 ![couldn't loaded](/images-rsc/excel ss.PNG)
 
 
