@@ -26,10 +26,11 @@ You can obtain the time that people walk around in specific field. For instance,
 
 #Structure
 Firstly, the application runs in real-time. I use socketio to communicate to flask server in real-time. Basic idea updating data is sending socketio request to flask server every in 1 sec. So, this triggers the server to update data.
-![couldn't loaded](/images-rsc/architecture.png)
+![couldn't loaded](/images-rsc/architecture.PNG)
 
 #Report
 Server create a excel file by getting data from Firebase when clicked report button. Excel file contains counting data and some charts according to that data.
-![couldn't loaded](/images-rsc/excel ss.png)
+
+![couldn't loaded](/images-rsc/excel ss.PNG)
 
 
