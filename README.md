@@ -32,5 +32,6 @@ Firstly, the application runs **in real-time**. I use socketio to communicate to
 Server create a excel file by getting data from Firebase when clicked report button. Excel file contains counting data and some charts according to that data.
 ![couldn't loaded](/images-rsc/excelss.PNG)
 
-
+# Model Training
 I trained on my own detection model in this project. Use [Tensorlofw 2 object detection API](https://github.com/tensorflow/models/tree/master/research/object_detection) 
+You can find training pipeline in train.ipynb file
