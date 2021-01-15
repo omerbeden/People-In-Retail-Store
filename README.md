@@ -35,3 +35,8 @@ Server create a excel file by getting data from Firebase when clicked report but
 # Model Training
 I trained on my own detection model in this project. Use [Tensorlofw 2 object detection API](https://github.com/tensorflow/models/tree/master/research/object_detection) .
 You can find training pipeline in train.ipynb file
+
+To run this project
+```python
+python3 app.py
+```
