@@ -1,5 +1,6 @@
 # People-In-Retail-Store
 People analysis in retail store
+FPS: 1.6
 
 ![couldn't loaded](/images-rsc/app-gif.gif)
 
@@ -10,7 +11,7 @@ This is a kind of project that make analysis on people in store. For now, it's p
 _Object tracking system_ can be implemented (I actually  implemented DeepSort already but I did't use it because of Raspberry Pi limitations ) to provide diversity data.
 You can obtain the time that people walk around in specific field. For instance, people in field1 walk around in that field average 10 minutes. 
 
-#Required Libraries
+# Required Libraries
 * [Flask](https://pypi.org/project/Flask/)
 * [Flask-Socketio](https://pypi.org/project/Flask-SocketIO/)
 * [OpenCv](https://pypi.org/project/opencv-python/)
