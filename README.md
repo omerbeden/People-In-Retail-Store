@@ -1,6 +1,8 @@
 # People-In-Retail-Store
 People analysis in retail store
 
+![couldn't loaded](/images-rsc/app-gif.gif)
+
 This is a kind of project that make analysis on people in store. For now, it's providing only people count data. Aim of this project is increase sales amount by providing  useful data.
  You can see amount of people in specific field. This fields can be more likely hallway or something like that. You can also see points that people walk around in store. Started color 
  is light blue , if a person stay same position more than one frame it gets dark.
