@@ -1,0 +1,31 @@
+.header{
+    font-style: italic;
+    padding: 0px;
+    margin: 0px;
+
+}
+
+#d{
+	background-color: rgba(128,128,128,0.1);
+}
+#m{
+	background-color: rgba(180,180,180,0.1);
+}
+#footer_text{
+	background-color: rgba(96,96,96,0.1);
+}
+
+#f1h6{
+	color:red;
+}
+
+#f2h6{
+	color:blue;
+}
+
+#f2_count,#f1_count,#total_people{
+	font-weight:bold;
+}
+
+
+

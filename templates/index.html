@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="{{ url_for('static', filename='style.css',v=0.3) }}" type="text/css" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+	<title>People Count</title>
+
+</head>
+
+<body>
+
+	<header>
+		<h1 class="text-center">Monitoring</h1>
+	</header>
+
+	<div class="container-fluid" id="m">
+		<div class="row">
+			<div class="col-sm-6">
+				<img class="img-fluid" src="{{url_for('video_feed')}}" alt="">
+			</div>
+			<div class="col-sm-6">
+				<img class="figure-img img-fluid" src="{{url_for('heatmap_feed')}}" alt="">
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid text-center p-5" id="d">
+
+		<script type="text/javascript" charset="utf-8">
+
+			var socket = io();
+			setInterval(function () {
+				socket.emit('update_all_data_event');
+			}, 1000);
+
+			setInterval(function () {
+				socket.emit("firebase_post_event");
+				console.log("firebase trigged!");
+			}, 5000);
+
+
+			socket.on('my response', function (msg) {
+				document.getElementById("clock").innerHTML = msg.time;
+				document.getElementById("total_people").innerHTML = msg.total_people;
+				document.getElementById("f1_count").innerHTML = msg.field1_count;
+				document.getElementById("f2_count").innerHTML = msg.field2_count;
+
+			});
+
+			function report_function() {
+				console.log("report trigged!")
+				socket.emit('report_event');
+				socket.on('report response', function (msg) {
+					if (msg == "True") {
+
+						document.getElementById('my_iframe').src = "{{url_for('download_report')}}";
+					}
+					else {
+						alert("report did not created!")
+					}
+				});
+			}
+
+		</script>
+
+		<iframe id="my_iframe" style="display:none;"></iframe>
+
+		<div class="row">
+			<i class="fa fa-clock-o" aria-hidden="true"></i> <span id="clock"></span>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				<h6 class="h6" id="f1h6">Field1 Count</h6>
+				<span id="f1_count"></span>
+			</div>
+			<div class="col">
+				<h6 class="h6" id="f2h6">Field2 Count</h6>
+				<span id="f2_count"></span>
+			</div>
+			<div class="col">
+				<h6> Total People</h6>
+				<span id="total_people"></span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<button class="btn btn-primary btn-sm" id="report_button" onClick="report_function()"><i
+						class="fa fa-download"></i>Report</button>
+			</div>
+		</div>
+	</div>
+	</div>
+	<footer class="bg-light text-center text-lg-start">
+		<div class="text-center p-3" id="footer_text">
+			<div class="row">
+				<div class="col">
+					Ömer Beden
+				</div>
+				<div class="col">
+					<i class="fa fa-envelope" aria-hidden="true"></i>
+					<a href="http://omerbeden@gmail.com/">omerbeden@gmail.com</a>
+				</div>
+				<div class="col">
+					<a href="http://www.omerbeden.com"><i class="fa fa-external-link-square"
+							aria-hidden="true"></i>omerbeden.com</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+
+</html>
